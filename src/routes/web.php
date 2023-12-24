@@ -15,9 +15,10 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [AuthController::class, 'admin']);
 });
+
 Route::get('/', [ContactController::class, 'index']);
-Route::POST('/contacts/confirm', [ContactController::class, 'confirm']);
-Route::POST('/contacts', [ContactController::class, 'store']);
+Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
+Route::post('/contacts', [ContactController::class, 'store']);
