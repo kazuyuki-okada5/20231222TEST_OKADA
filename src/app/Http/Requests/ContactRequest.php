@@ -13,11 +13,13 @@ class ContactRequest extends FormRequest
              'last_name.required' => '名を入力してください',
              'gender.required' => '性別を選択してください',
              'email.required' => 'メールアドレスを入力してください',
+             'email.email' => 'メールアドレスはメール形式で入力してください',
              'tell.required' => '電話番号を入力してください',
+             'tell.digits:5' => '電話番号は5桁の数字で入力してください',
              'address.required' => '住所を入力してください',
              'type.required' => 'お問い合わせの種類を選択してください',
-             'tel.required' => 'お問い合わせの内容を入力して下さい',
-             'detail.numeric' => '電話番号を数値で入力してください',
+             'detail.required' => 'お問い合わせ内容を入力してください',
+             'detail.max:120' => 'お問合せ内容は120文字以内で入力してください',
          ];
      }/**
      * Determine if the user is authorized to make this request.
@@ -37,12 +39,14 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required',],
+            'last_name' => ['required',],
             'gender' => ['required'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'tell' => ['required', 'numeric', 'digits_between:10,11'],
-            'address' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email',],
+            'tell' => ['required', 'numeric', 'digits:5'],
+            'address' => ['required', ],
+            'type' => ['required', ],
+            'detail' => ['required',  'max:120'],
         ];
     }
 }

@@ -29,7 +29,7 @@
         <div class="form__group">
           <div class="form__group-title">
             <span class="form__label--item">お名前</span>
-            <span class="form__label--required">必須</span>
+            <span class="form__label--required">※</span>
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
@@ -38,6 +38,9 @@
             </div>
             <div class="form__error">
               @error('first_name')
+              {{ $message }}
+              @enderror
+              @error('last_name')
               {{ $message }}
               @enderror
             </div>
@@ -66,7 +69,7 @@
         <div class="form__group">
           <div class="form__group-title">
             <span class="form__label--item">メールアドレス</span>
-            <span class="form__label--required">必須</span>
+            <span class="form__label--required">※</span>
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
@@ -82,14 +85,14 @@
         <div class="form__group">
           <div class="form__group-title">
             <span class="form__label--item">電話番号</span>
-            <span class="form__label--required">必須</span>
+            <span class="form__label--required">※</span>
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
               <input type="tell" name="tell" placeholder="09012345678" value="{{ old('tell') }}" />
             </div>
             <div class="form__error">
-              @error('tel')
+              @error('tell')
               {{ $message }}
               @enderror
             </div>
@@ -130,18 +133,34 @@
           <div class="form__group-content">
             <div class="form__input--text">
               <select name="type">
-            　　<option value="">選択してください</option>
-            　　<option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
-            　　<option value="リンクについて">リンクについて</option>
-            　</select>
+                <option value="" disabled selected>選択してください</option>
+                <option value="商品のお届けについて">商品のお届けについて</option>
+                <option value="商品の交換について">商品の交換について</option>
+                <option value="商品トラブル">商品トラブル</option>
+                <option value="ショップへのお問い合わせ">ショップへのお問い合わせ</option>
+                <option value="その他">その他</option>
+              </select>
+            </div>
+            <div class="form__error">
+              @error('type')
+              {{ $message }}
+              @enderror
+            </div>
+          </div>
             </div>
         <div class="form__group">
           <div class="form__group-title">
             <span class="form__label--item">お問い合わせ内容</span>
+            <span class="form__label--required">※</span>
           </div>
           <div class="form__group-content">
             <div class="form__input--textarea">
-              <textarea name="detail" placeholder="資料をいただきたいです"></textarea>
+              <input type="detail" name="detail" placeholder="お問い合わせ内容をご記載ください" value="{{ old('detail') }}" />
+            </div>
+            <div class="form__error">
+              @error('detail')
+              {{ $message }}
+              @enderror
             </div>
           </div>
         </div>
