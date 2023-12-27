@@ -1,36 +1,53 @@
 @extends('layouts.app')
 
-@section('css')
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
-@endsection
+<style>
+  th {
+    background-color: #289ADC;
+    color: white;
+    padding: 5px 40px;
+  }
+  tr:nth-child(odd) td{
+    background-color: #FFFFFF;
+  }
+  td {
+    padding: 25px 40px;
+    background-color: #EEEEEE;
+    text-align: center;
+  }
+    svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+  }
+</style>
+@section('title', 'index.blade.php')
 
 @section('content')
 <div class="attendance__alert">
   // メッセージ機能
 </div>
-
-<div class="attendance__content">
-  <div class="attendance__panel">
-    <form class="attendance__button">
-      <button class="attendance__button-submit" type="submit">勤務開始</button>
-    </form>
-    <form class="attendance__button">
-      <button class="attendance__button-submit" type="submit">勤務終了</button>
-    </form>
-  </div>
-  <div class="attendance-table">
-    <table class="attendance-table__inner">
-      <tr class="attendance-table__row">
-        <th class="attendance-table__header">名前</th>
-        <th class="attendance-table__header">開始時間</th>
-        <th class="attendance-table__header">終了時間</th>
-      </tr>
-      <tr class="attendance-table__row">
-        <td class="attendance-table__item">サンプル太郎</td>
-        <td class="attendance-table__item">サンプル</td>
-        <td class="attendance-table__item">サンプル</td>
-      </tr>
-    </table>
-  </div>
-</div>
+<table>
+  <tr>
+    <th>お名前</th>
+    <th>性別</th>
+    <th>メールアドレス</th>
+    <th>お問い合わせの種類</th>
+    <th></th>
+  </tr>
+  @foreach ($contacts as $contact)
+  <tr>
+    <td>{{$contact->first_name}}</td>
+    <td>{{$contact->gender}}</td>
+    <td>{{$contact->email}}</td>
+    <td>{{$contact->type}}</td>
+     <td>
+            <button>
+                <div>詳細</div>
+            </button>
+        </td>
+  </tr>
+  @endforeach
+  
+</table>
+{{ $contacts->links() }}
 @endsection

@@ -56,6 +56,7 @@ class Contacts extends Model
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [AuthController::class, 'admin']);
 });
+Route::get('/admin', [AuthController::class, 'admin']);
 
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
