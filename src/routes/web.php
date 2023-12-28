@@ -61,3 +61,6 @@ Route::get('/admin', [AuthController::class, 'admin']);
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
 Route::post('/contacts', [ContactController::class, 'store']);
+
+Route::get('/find', [ContactController::class, 'find']);
+Route::post('/find', [ContactController::class, 'search']);

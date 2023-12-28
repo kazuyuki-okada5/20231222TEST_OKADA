@@ -26,6 +26,13 @@
 <div class="attendance__alert">
   // メッセージ機能
 </div>
+<form action="find" method="POST">
+    @csrf
+    <input type="text" name="input" value="{{ $input ?? '' }}">
+    <input type="submit" value="見つける">
+</form>
+
+{{ $contacts->links() }}
 <table>
   <tr>
     <th>お名前</th>
@@ -49,5 +56,5 @@
   @endforeach
   
 </table>
-{{ $contacts->links() }}
+
 @endsection

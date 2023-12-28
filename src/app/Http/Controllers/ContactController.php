@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -22,4 +23,21 @@ class ContactController extends Controller
         Contact::create($contact);
         return view('thanks');
   }
+    public function find()
+    {
+        return view('find', ['input' => '']);
+    }
+    public function search(Request $request)
+    {
+        $input = $request->input;
+
+        $item = Contact::where('first_name', 'LIKE',"%{$request->input}%")
+            ->orWhere('email', 'LIKE', "%{$request->input}%")
+            ->get();
+        $param = [
+            'input' => $input,
+            'item' => $item
+        ];
+        return view('find', $param);
+    }
 }
