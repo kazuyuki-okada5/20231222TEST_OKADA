@@ -1,0 +1,102 @@
+/* 全体のヘッダースタイル */
+.header-utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    /* ヘッダーの背景色 */
+    padding: 10px;
+    /* ヘッダーの上下左右の余白 */
+    border-bottom: 1px solid #ddd;
+    /* ヘッダーの下にボーダーを追加 */
+}
+
+/* 左側のロゴスタイル */
+.header-utilities__left {
+    flex-grow: 1;
+}
+
+.header__logo {
+    display: block;
+    margin: 0;
+    text-align: center;
+    color: #6d6464;
+    /* ロゴの文字色 */
+    font-family: 'Playfair Display', serif;
+    /* ロゴのフォント */
+    font-size: 40px;
+    /* ロゴのフォントサイズ */
+}
+
+/* 右側のリンクスタイル */
+.header-utilities__right {
+    margin-left: 20px;
+}
+
+.contact-form__heading{
+        display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            /* 画面の高さいっぱいに表示するための設定 */
+            margin: 0;
+            /* デフォルトのマージンをなくす */
+            color: #6d6464;
+            font-family: 'Playfair Display', serif;
+}
+
+.form-wrapper {
+
+    background-color: #ffffff;
+    padding: 80px;
+    margin: 10px auto;
+    /* 上下10px、左右は自動的に調整されて中央に配置 */
+    max-width: 700px;
+    /* 適切な最大横幅を指定 */
+    width: 100%;
+    /* 幅を100%にすることでコンテンツに合わせて広げます */
+}
+
+.form__group-content {
+    display: flex;
+    justify-content: flex-start; /* 左寄せ */
+    align-items: center; /* 垂直方向に中央揃え */
+}
+
+.form__group {
+    display: flex;
+    align-items: center;
+    /* 垂直方向に中央揃え */
+}
+
+.form__group-title {
+    margin-right: 150px;
+    /* 適切な右側の余白を指定 */
+}
+
+.form__group-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* 他のスタイルを適用 */
+}
+
+.form__input--text input {
+    flex: 1;
+    /* 残りのスペースを均等に分配 */
+    /* その他のスタイルを適用 */
+}
+
+/* もし幅を固定したい場合は、flex: 0 0 {width}; としてください */
+/* 例: flex: 0 0 200px; */
+
+.form__label--required{
+    color: red;
+}
+
+.form__error {
+    margin-top: 3px;
+    /* 適切なマージンを追加 */
+    color: red;
+    /* エラーメッセージの色を設定 */
+}

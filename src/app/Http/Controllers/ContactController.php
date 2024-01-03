@@ -38,6 +38,45 @@ class ContactController extends Controller
             'input' => $input,
             'item' => $item
         ];
+        
         return view('find', $param);
     }
+public function performSearch(Request $request)
+{
+    $input = $request->input('input');
+    $searchOption = $request->search_option;
+    $genderOption = $request->gender_option;
+
+    $query = Contact::query();
+
+    if ($input) {
+        $query->where(function ($q) use ($input) {
+            $q->where('first_name', 'LIKE', "%{$input}%")
+                ->orWhere('email', 'LIKE', "%{$input}%");
+        });
+    }
+
+    if ($genderOption !== null) {
+        $query->where('gender', $genderOption);
+    }
+
+    if ($searchOption === 'type') {
+        $typeOption = $request->type_option;
+        if ($typeOption) {
+            $query->where('type', $typeOption);
+        }
+    }
+
+    dd($query->toSql());
+
+    $contacts = $query->get();
+
+    $param = [
+        'input' => $input,
+        'contacts' => $contacts,
+        'genderOption' => $genderOption ?? null,
+    ];
+
+    return view('find', $param);
+}
 }

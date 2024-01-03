@@ -26,10 +26,39 @@
 <div class="attendance__alert">
   // メッセージ機能
 </div>
-<form action="find" method="POST">
+<form action="{{ url('/find') }}" method="POST">
     @csrf
-    <input type="text" name="input" value="{{ $input ?? '' }}">
-    <input type="submit" value="見つける">
+
+    <input type="text" name="input" value="{{ $input ?? '' }}" placeholder="名前やメールアドレスを入力してください">
+    <input type="submit" value="検索">
+
+      <select name="search_option">
+      <option value="all">全て</option>
+      <option value="gender">性別</option>
+      <option value="type">お問い合わせ種類</option>
+      <!-- 他の検索オプションを追加 -->
+  </select>
+
+    <select name="gender_option">
+        <option value="">性別</option>
+        <option value="male">男性</option>
+        <option value="female">女性</option>
+        <option value="other">その他</option>
+    </select>
+
+     <select name="type_option">
+      <option value="">お問い合わせの種類</option>
+      <option value="inquiry_type_1">商品のお届けについて</option>
+      <option value="inquiry_type_2">商品の交換について</option>
+      <option value="inquiry_type_3">商品トラブル</option>
+      <option value="inquiry_type_4">ショップへのお問い合わせ</option>
+      <option value="inquiry_type_5">その他</option>
+      <!-- 他のお問い合わせ種類を追加 -->
+  </select>
+
+    <!-- カレンダー入力（日付ベースの検索） -->
+    <input type="date" name="date" value="{{ date('Y-m-d') }}" required>
+    <input type="submit" value="検索">
 </form>
 
 {{ $contacts->links() }}

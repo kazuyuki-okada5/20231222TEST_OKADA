@@ -1,0 +1,210 @@
+/* 全体のヘッダースタイル */
+.header-utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    /* ヘッダーの背景色 */
+    padding: 10px;
+    /* ヘッダーの上下左右の余白 */
+    border-bottom: 1px solid #ddd;
+    /* ヘッダーの下にボーダーを追加 */
+}
+
+/* 左側のロゴスタイル */
+.header-utilities__left {
+    flex-grow: 1;
+}
+
+.header__logo {
+    display: block;
+    margin: 0;
+    text-align: center;
+    color: #6d6464;
+    /* ロゴの文字色 */
+    font-family: 'Playfair Display', serif;
+    /* ロゴのフォント */
+    font-size: 40px;
+    /* ロゴのフォントサイズ */
+}
+
+/* 右側のリンクスタイル */
+.header-utilities__right {
+    margin-left: 20px;
+}
+
+/* リンクスタイル */
+.login__link {
+    display: inline-block;
+    border: 1px solid #abaaaa;
+    border-radius: 3px;
+    overflow: hidden;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.login__button-submit {
+    display: block;
+    width: 100%;
+    padding: 5px 15px;
+    text-decoration: none;
+    background-color: #e4e1de;
+    color: #ada4a4;
+    transition: background-color 0.3s ease;
+}
+
+.login__button-submit:hover {
+    background-color: #b4aca9;
+}
+
+.register__content {
+    background-color: #ebe5e2;
+    /* 薄茶色の背景色を追加 */
+    height: 130vh;
+    /* 画面の高さいっぱいに表示するための設定 */
+}
+
+.register-form__heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    /* 画面の高さいっぱいに表示するための設定 */
+    margin: 0;
+    /* デフォルトのマージンをなくす */
+    color: #6d6464;
+    font-family: 'Playfair Display', serif;
+}
+
+.form {
+    height: 100px;
+    /* 適切な高さに調整 */
+}
+
+.form-wrapper {
+    border: 1px solid #ddd;
+    /* 枠線を追加 */
+    background-color: #ffffff;
+    padding: 80px;
+    margin: 1px auto;
+    /* 上下10px、左右は自動的に調整されて中央に配置 */
+    border-radius: 5px;
+    max-width: 500px;
+    /* 適切な最大横幅を指定 */
+    width: 100%;
+    /* 幅を100%にすることでコンテンツに合わせて広げます */
+}
+
+.form__group-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form__label--item {
+    display: block;
+    /* ブロック要素として表示 */
+    margin-top: 35px;
+    /* 適切な上部のマージンを指定 */
+    margin-bottom: 5px;
+    /* 適切なマージンを指定 */
+    font-size: 20px;
+    /* 適切なフォントサイズを指定 */
+    color: #9a9090;
+    /* 適切なテキスト色を指定 */
+    font-weight: bold;
+    /* 太字にする場合は指定 */
+    /* 他のスタイルを追加する場合はここに追加 */
+}
+.form__input--text input[type="name"] {
+    width: 300px;
+    /* 適切な横幅を指定 */
+    padding: 10px;
+    /* 適切なパディングを指定 */
+    box-sizing: border-box;
+    /* ボックスモデルをborder-boxに設定してパディングやボーダーが要素のサイズに含まれるようにする */
+    border: 1px solid #eeeeee;
+    /* 枠線を追加 */
+    background-color: #eeeeee;
+}
+
+.form__input--text input[type="email"] {
+    width: 300px;
+    /* 適切な横幅を指定 */
+    padding: 10px;
+    /* 適切なパディングを指定 */
+    box-sizing: border-box;
+    /* ボックスモデルをborder-boxに設定してパディングやボーダーが要素のサイズに含まれるようにする */
+    border: 1px solid #eeeeee;
+    /* 枠線を追加 */
+    background-color: #eeeeee;
+}
+
+.form__input--text input[type="password"] {
+    width: 300px;
+    /* 適切な横幅を指定 */
+    padding: 10px;
+    /* 適切なパディングを指定 */
+    box-sizing: border-box;
+    /* ボックスモデルをborder-boxに設定してパディングやボーダーが要素のサイズに含まれるようにする */
+    border: 1px solid #eeeeee;
+    /* 枠線を追加 */
+    background-color: #eeeeee;
+}
+
+.form__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    /* ボタンの上部のマージン */
+}
+
+.form__button-submit {
+    width: 120px;
+    /* ボタンの横幅 */
+    height: 35px;
+    /* ボタンの縦幅 */
+    margin: 0 auto;
+    margin-top: 30px;
+    /* ボタン内のパディング */
+    border: 2px solid #645d5c;
+    /* ボーダーの太さと色 */
+    border-radius: 1px;
+    /* ボタンの角を丸くする */
+    background-color: #786a6a;
+    /* ボタンの背景色 */
+    color: #ffffff;
+    /* ボタンのテキスト色 */
+    font-size: 16px;
+    /* ボタンのテキストサイズ */
+    cursor: pointer;
+    /* カーソルをポインターに変更 */
+    transition: background-color 0.3s ease;
+
+    /* ホバーエフェクトのアニメーション */
+    &:hover {
+        background-color: #856e5e;
+        /* ホバー時の背景色変更 */
+    }
+}
+
+.form__group-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__group-content {
+    position: relative;
+}
+
+.form__error {
+    position: absolute;
+    top: 100%;
+    /* 入力フィールドの下に配置 */
+    left: 1;
+    margin-top: 3px;
+    /* 適切なマージンを追加 */
+    color: red;
+    /* エラーメッセージの色を設定 */
+}
